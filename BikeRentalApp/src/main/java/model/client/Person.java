@@ -1,0 +1,43 @@
+package model.client;
+
+public class Person extends Client {
+	
+	private String name;
+	private String surname;
+	
+	private static final long serialVersionUID = -7119062341912785804L;
+	
+	public Person(long id) {
+		super(id);
+		}
+	public Person(long id, String phoneNumber, String name, String surname) {
+		super(id, phoneNumber);
+		this.name=name;
+		this.surname=surname;
+	}
+	public Person() {
+		super(0L);
+	}
+	
+	public void setName(String name) {
+		this.name=name;
+	}
+	
+	public void setSurname(String surname) {
+		this.surname=surname;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	
+	public String getSurname() {
+		return surname;
+	}
+	
+	@Override
+	public String getClientName() {
+		return name + " " + surname;
+	}
+
+}

@@ -9,14 +9,16 @@ public class Person extends Client {
 	
 	public Person(long id) {
 		super(id);
+		logger.info("Creating Person: " + " id=" +id);
 		}
 	public Person(long id, String phoneNumber, String name, String surname) {
 		super(id, phoneNumber);
 		this.name=name;
 		this.surname=surname;
+		logger.info("Creating Institution: " + " id=" +id);
 	}
 	public Person() {
-		super(0L);
+		this(0L);
 	}
 	
 	public void setName(String name) {

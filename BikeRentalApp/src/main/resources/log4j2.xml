@@ -5,7 +5,7 @@
   </Properties>
   <Appenders>
     <File name="File1" fileName="${filename}" append="false" advertise="false">
-        <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} -!- %msg%n"/>
+        <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} %msg%n"/>
     </File>
    
   </Appenders>
@@ -15,7 +15,7 @@
       <AppenderRef ref="File1"/>
     </Logger>
     
-    <Root level="error">
+    <Root level="debug">
       <AppenderRef ref="File1"/>
     </Root>
   </Loggers>

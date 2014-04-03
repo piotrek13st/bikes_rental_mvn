@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import model.date.DatePair;
 import model.date.EndBeforStartException;
@@ -19,8 +21,11 @@ public abstract class Thing implements Idenifiable, Serializable {
 	
 	List<DatePair> datesOfReservations = new ArrayList<>();
 	
+	protected Logger logger=LogManager.getLogger(Thing.class.getName());
+	
 	public Thing(long id) {
 		this.id=id;
+		logger.info("Creating Thing: id="+ id);
 	}
 	
 	public Thing() {

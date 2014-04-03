@@ -9,13 +9,15 @@ public class Institution extends Client {
 	
 	public Institution(long id) {
 		super(id);
+		logger.info("Creating Institution: " + " id=" +id);
 	}
 	public Institution(long id, String phoneNumber, String institutionName) {
 		super(id, phoneNumber);
 		this.institutionName=institutionName;
+		logger.info("Creating Institution: " + " id=" +id);
 	}
 	public Institution() {
-		super(0L);
+		this(0L);
 	}
 	
 	public Institution(long id, String phoneNumber, String institutionName, String email) {

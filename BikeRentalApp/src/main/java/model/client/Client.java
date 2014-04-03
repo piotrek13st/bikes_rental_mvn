@@ -2,6 +2,9 @@ package model.client;
 
 import java.io.Serializable;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import model.check.Checkable;
 import model.id.Idenifiable;
 
@@ -13,6 +16,8 @@ abstract public class Client implements Comparable<Client>, Checkable<Client>, I
 	private String email;
 	
 	private static final long serialVersionUID = 61528275354802521L;
+	
+	protected static Logger logger= LogManager.getLogger(Client.class.getSimpleName());
 	
 	public Client(long id) {
 		this.id=id;

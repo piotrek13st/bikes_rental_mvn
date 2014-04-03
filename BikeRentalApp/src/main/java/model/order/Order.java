@@ -6,6 +6,9 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import model.client.Client;
 import model.date.DatePair;
 import model.id.Idenifiable;
@@ -24,6 +27,8 @@ public class Order implements Comparable<Order>, Idenifiable, Serializable {
 	float price;
 	private static final long serialVersionUID = 2348982526506611759L;
 	
+	protected Logger logger=LogManager.getLogger(Client.class.getName());
+	
 	public enum Status{
 		CREATING_ORDER,
 		CONFIRMED,
@@ -34,10 +39,12 @@ public class Order implements Comparable<Order>, Idenifiable, Serializable {
 	
 	public Order() {
 		this(0L);
+		
 	};
 	
 	public Order(long id) {
 		this.id=id;
+		logger.info("Creating order: id=" +id );
 	}
 	
 	@Override

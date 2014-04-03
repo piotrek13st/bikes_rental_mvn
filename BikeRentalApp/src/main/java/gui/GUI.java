@@ -35,7 +35,9 @@ public class GUI {
 	public static Logger logger = LogManager.getLogger(GUI.class.getName());
 	
 	public static void main(String[] args) throws RecordNotFoundException {
-				
+		
+		logger.debug("starting application");
+		
 		RecordManager<Bike> bikes=new RecordManager<>();
 		RecordManager<Client> clients=new RecordManager<>();
 		RecordManager<Order> orders= new RecordManager<>();
@@ -44,8 +46,7 @@ public class GUI {
 		Scanner in = new Scanner(System.in);
 		String option;
 		
-		logger.error("Entering application");
-		logger.trace("Trace application");
+		Logger log2=LogManager.getRootLogger();
 		
 		while(true) {
 		System.out.println("Type 'a' for commands");
@@ -144,6 +145,7 @@ public class GUI {
 			orders.sortRecords();
 			
 		case 'u':
+			logger.debug("closing application");
 			return;
 		case 'p':
 			try {
@@ -184,7 +186,7 @@ public class GUI {
 		System.out.format("%-30s","i) remove bike");						//
 		System.out.format("%-30s%n","j) remove client");					//
 		System.out.format("%-30s","k) remove order by id");					//
-		System.out.format("%-30s%n","t) show client by id");				//
+		System.out.format("%-30s%n","t) show bike by id");				//
 		System.out.format("%-30s","l) show order by id");					//
 		System.out.format("%-30s%n","m) sort bike database");				//
 		System.out.format("%-30s","n) sort client database");				//
@@ -583,5 +585,8 @@ public class GUI {
 			b.getRecordById(t.getId()).releaseReservation(ord.getDatePair());			
 		}
 	}
+	
+	
 }
+
 

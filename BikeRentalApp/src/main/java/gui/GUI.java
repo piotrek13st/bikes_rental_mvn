@@ -6,9 +6,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import logic.RecordManager;
 import logic.RecordNotFoundException;
 import model.client.Client;
@@ -26,17 +23,24 @@ import model.thing.MountainBike;
 import model.thing.Thing;
 import model.thing.TraditionalBike;
 
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+
+
+
 public class GUI {
 	final static int PRICE_TRADITIONAL=20;
 	final static int PRICE_MOUNTAIN=30;
 	final static int PRICE_MTB=50;
 	public static IdModel idHandler= IdModel.getInstance();
 	
-	public static Logger logger = LogManager.getLogger(GUI.class.getName());
+	public static Logger logger = LogManager.getLogger();
 	
 	public static void main(String[] args) throws RecordNotFoundException {
 		
-		logger.debug("starting application");
+		logger.trace("starting program");
 		
 		RecordManager<Bike> bikes=new RecordManager<>();
 		RecordManager<Client> clients=new RecordManager<>();
@@ -46,8 +50,7 @@ public class GUI {
 		Scanner in = new Scanner(System.in);
 		String option;
 		
-		Logger log2=LogManager.getRootLogger();
-		
+	
 		while(true) {
 		System.out.println("Type 'a' for commands");
 		option=in.next();
@@ -145,7 +148,7 @@ public class GUI {
 			orders.sortRecords();
 			
 		case 'u':
-			logger.debug("closing application");
+			logger.trace("closing application");
 			return;
 		case 'p':
 			try {
@@ -585,6 +588,9 @@ public class GUI {
 			b.getRecordById(t.getId()).releaseReservation(ord.getDatePair());			
 		}
 	}
+	
+	
+	
 	
 	
 }

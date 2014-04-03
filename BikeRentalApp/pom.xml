@@ -7,14 +7,21 @@
    <packaging>jar</packaging>
   
   <dependencies>
-  	<dependency>
-  		<groupId>log4j</groupId>
-  		<artifactId>log4j</artifactId>
-  		<version>1.2.17</version>
-  	</dependency>
+  	  <dependency>
+  	  	<groupId>org.apache.logging.log4j</groupId>
+   		<artifactId>log4j-api</artifactId>
+    	<version>2.0-rc1</version>
+  	  </dependency>
+  	  
+  	   <dependency>
+  	  	<groupId>org.apache.logging.log4j</groupId>
+   		<artifactId>log4j-core</artifactId>
+    	<version>2.0-rc1</version>
+  	  </dependency>
+  	 
+  	  
   </dependencies>
   
- 
   
   <build>
       <plugins>
@@ -40,7 +47,6 @@
       	    <finalName>BikeRental</finalName>
       	    <archive>
       	        <manifest>
-      	           
       	            <mainClass>gui.GUI</mainClass>
       	             <addClasspath>true</addClasspath>
       	            <classpathPrefix>dependency-jar</classpathPrefix>
@@ -60,6 +66,15 @@
       	</configuration>
       </plugin>
       </plugins>
+      
+      <resources>
+          <resource>
+              <directory>src/main/resources</directory>
+              <includes>
+                  <include>**/*.xml</include>
+              </includes>
+          </resource>
+      </resources>
 
   </build>
   

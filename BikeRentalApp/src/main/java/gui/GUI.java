@@ -6,13 +6,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
 
-import org.apache.log4j.Appender;
-import org.apache.log4j.BasicConfigurator;
-import org.apache.log4j.FileAppender;
-import org.apache.log4j.Layout;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PatternLayout;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import logic.RecordManager;
 import logic.RecordNotFoundException;
 import model.client.Client;
@@ -35,6 +31,9 @@ public class GUI {
 	final static int PRICE_MOUNTAIN=30;
 	final static int PRICE_MTB=50;
 	public static IdModel idHandler= IdModel.getInstance();
+	
+	public static Logger logger = LogManager.getLogger(GUI.class.getName());
+	
 	public static void main(String[] args) throws RecordNotFoundException {
 				
 		RecordManager<Bike> bikes=new RecordManager<>();
@@ -45,18 +44,8 @@ public class GUI {
 		Scanner in = new Scanner(System.in);
 		String option;
 		
-		Layout lay1 = new PatternLayout("[%p] %c - %m - Data wpisu: %d %n");
-		
-		Appender app1=null;
-		try {
-			app1 = new FileAppender(lay1, "D:/log_express2.txt");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		BasicConfigurator.configure(app1);
-		Logger logger = Logger.getLogger(GUI.class);
-		logger.setLevel(Level.DEBUG);
-		logger.debug("Hello World!"); 
+		logger.error("Entering application");
+		logger.trace("Trace application");
 		
 		while(true) {
 		System.out.println("Type 'a' for commands");

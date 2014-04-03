@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import model.check.Checkable;
+
 import model.date.DatePair;
 import model.date.EndBeforStartException;
 import model.id.Idenifiable;

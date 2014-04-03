@@ -68,6 +68,7 @@ public class DatePair implements Serializable {
 		return false;
 	}
 	
+	@SuppressWarnings("deprecation")
 	@Override
 	public String toString() {
 		return startAtDate.toGMTString() + " to " + endAtDate.toGMTString();

@@ -16,7 +16,7 @@ public class IdModel {
 	};
 	
 	private long idCounter;
-	private final static String filename="idCounter.txt";
+	private final static String filename="idCounter.d";
 	
 	
 	public static IdModel getInstance() {

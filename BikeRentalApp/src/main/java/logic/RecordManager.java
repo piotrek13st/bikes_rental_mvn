@@ -22,6 +22,11 @@ import java.util.Iterator;
 import java.util.List;
 //
 
+
+
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import model.check.Checkable;
 import model.id.Idenifiable;
 
@@ -30,9 +35,12 @@ public class RecordManager<T extends Comparable<T> & Idenifiable> implements Rec
 
 	private List<T> recordList =new ArrayList<>();
 	
+	private static Logger logger=LogManager.getLogger(RecordManager.class.getName());
+	
 
 	@Override
 	public void addRecord(T record) {
+		
 		recordList.add(record);
 	}
 
